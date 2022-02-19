@@ -8,6 +8,9 @@ client = commands.Bot(command_prefix='%')
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+@client.event
+async def on_command_error(ctx, error):
+    await ctx.channel.send("Sorry, invalid command. Try %help")
 
 @client.command(brief="Draft a custom \'Balanced\' aram game", usage="<team size> <champs per player>")
 async def baram(ctx, teamS=3, idvPool=3):
