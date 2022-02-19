@@ -119,13 +119,13 @@ async def secret(ctx):
     await ctx.channel.send("tom stinks")
 
 @client.command(brief="Displays a list of banned champions.")
-async def banned(ctx):
+async def banlist(ctx):
     embed = discord.Embed(
         title="Banlist",
         color=discord.Color.red()
     )
     embed.add_field(name="Restricted from baram", value=listFormat(getBanned()))
-    await ctx.channel.send()
+    await ctx.channel.send(embed=embed)
     return
 
 @client.command(brief="Draft a custom aram game", usage="<team size> <champs per player>")
