@@ -20,8 +20,8 @@ async def baram(ctx, teamS=3, idvPool=3):
     idvPool = min(idvPool, 10)
     teamSize = min(teamSize, 5)
     embed = discord.Embed(
-            title = "{name}\'s Aram".format(name = ctx.author.display_name),
-            description="{teamS} vs. {teamS}. Balanced mode. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
+            title = "{name}\'s baram".format(name = ctx.author.display_name),
+            description="{teamSize} vs. {teamSize}. Balanced mode. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
             color = discord.Color.blurple()
     )
 
@@ -140,7 +140,7 @@ async def aram(ctx, teamS=3, idvPool=3):
     teamR = []
     embed = discord.Embed(
         title = "{name}\'s Aram".format(name = ctx.author.display_name),
-        description="{teamS} vs. {teamS}. Standard mode - Completely random. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
+        description="{teamSize} vs. {teamSize}. Standard mode - Completely random. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
         color = discord.Color.dark_blue()
     )
 
