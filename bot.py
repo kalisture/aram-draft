@@ -16,15 +16,14 @@ async def baram(ctx, teamS=3, idvPool=3):
     adcs = getADCs()
     tanks = getTanks()
     enchanters = getEnchanters()
-    embed = discord.Embed(
-            title = "{name}\'s Aram".format(name = ctx.author.display_name),
-            description="{teamS} vs. {teamS}. Balanced mode. Pool is comprised of {idvPool} champs per player.".format(teamS=teamS, idvPool=idvPool),
-            color = discord.Color.blurple()
-        )
-
     teamSize = int(teamS)
     idvPool = min(idvPool, 10)
     teamSize = min(teamSize, 5)
+    embed = discord.Embed(
+            title = "{name}\'s Aram".format(name = ctx.author.display_name),
+            description="{teamS} vs. {teamS}. Balanced mode. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
+            color = discord.Color.blurple()
+    )
 
     teamL = []
     teamR = []
@@ -141,7 +140,7 @@ async def aram(ctx, teamS=3, idvPool=3):
     teamR = []
     embed = discord.Embed(
         title = "{name}\'s Aram".format(name = ctx.author.display_name),
-        description="{teamS} vs. {teamS}. Standard mode - Completely random. Pool is comprised of {idvPool} champs per player.".format(teamS=teamS, idvPool=idvPool),
+        description="{teamS} vs. {teamS}. Standard mode - Completely random. Pool is comprised of {idvPool} champs per player.".format(teamSize=teamSize, idvPool=idvPool),
         color = discord.Color.dark_blue()
     )
 
