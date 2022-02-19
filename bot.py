@@ -1,3 +1,4 @@
+from turtle import color
 import discord
 from discord.ext import commands
 import random
@@ -117,7 +118,16 @@ async def baram(ctx, teamS=3, idvPool=3):
 @client.command(hidden="true")
 async def secret(ctx):
     await ctx.channel.send("tom stinks")
-    
+
+@client.command(brief="Displays a list of banned champions.")
+async def banned(ctx):
+    embed = discord.Embed(
+        title="Banlist",
+        color=discord.Color.red()
+    )
+    embed.add_field(name="Restricted from baram", value=listFormat(getBanned()))
+    await ctx.channel.send()
+    return
 
 @client.command(brief="Draft a custom aram game", usage="<team size> <champs per player>")
 async def aram(ctx, teamS=3, idvPool=3):
