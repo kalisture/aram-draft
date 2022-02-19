@@ -115,6 +115,11 @@ async def baram(ctx, teamS=3, idvPool=3):
     await ctx.channel.send(embed=embed)
     return
 
+@client.command(hidden="true")
+async def secret(ctx):
+    await ctx.channel.send("tom stinks")
+    
+
 @client.command(brief="Draft a custom aram game", usage="<team size> <champs per player>")
 async def aram(ctx, teamS=3, idvPool=3):
     embed = discord.Embed(
