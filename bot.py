@@ -140,18 +140,17 @@ async def on_guild_join(guild):
 @client.command(brief="Display or edit the list of banned champions.", usage="add|remove|default <champion name>")
 async def banlist(ctx, p="list", champ=""):
     champ = champ.title()
-    f = open("banlist.json", "r")
-    banlist = json.load(f)
-    match p:
-        case "list":       
+    with open("banlist.json", "r") as f:
+        banlist = json.load(f)
+        if p == "list":       
             embed = discord.Embed(
                 title="Banlist",
                 color=discord.Color.red()
             )
             embed.add_field(name="Restricted from baram", value=listFormat(banlist[str(ctx.guild.id)]))
             await ctx.channel.send(embed=embed)
-            return
-        case "add":
+
+        elif p == "add":
             if champ in banlist[str(ctx.guild.id)]:
                 await ctx.channel.send(f"{champ} is already banned.")
             elif(champ in getAllChamps()):
@@ -160,20 +159,21 @@ async def banlist(ctx, p="list", champ=""):
             else:
                 await ctx.channel.send(f"{champ} is not in the game. Check spelling.")
 
-        case "default":
+        elif p == "default":
             banlist[str(ctx.guild.id)] = getBanned()
             await ctx.channel.send("Banlist reset to default")
-        
-        case "remove":
+            
+        elif p == "remove":
             if champ in banlist[str(ctx.guild.id)]:
                 banlist[str(ctx.guild.id)].remove(champ)
                 await ctx.channel.send(f"{champ} was removed from the banlist.")
             else:
                 await ctx.channel.send(f"{champ} is not in the banlist. Check spelling")
-        case (default):
+        else:
             await ctx.channel.send("Sorry, i didn't understand that.")
-    json.dump(banlist, f)
-    f.close()
+
+    with open("banlist.json", "w") as f:
+        json.dump(banlist, f)
 
 def listFormat(list):
     out = ""
