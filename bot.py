@@ -9,9 +9,9 @@ client = commands.Bot(command_prefix='%')
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-# @client.event
-# async def on_command_error(ctx, error):
-#     await ctx.channel.send("Sorry, invalid command. Try %help")
+@client.event
+async def on_command_error(ctx, error):
+   await ctx.channel.send("Sorry, invalid command. Try %help")
 
 @client.command(brief="Draft a custom \'Balanced\' aram game", usage="<team size> <champs per player>")
 async def baram(ctx, teamS=3, idvPool=3):
@@ -139,7 +139,7 @@ async def on_guild_join(guild):
 
 @client.command(brief="Display or edit the list of banned champions.", usage="add|remove|default <champion name>")
 async def banlist(ctx, p="list", champ=""):
-    champ = champ.capitalize()
+    champ = champ.title()
     with open("banlist.json", "r") as f:
         banlist = json.load(f)
         match p:
@@ -152,11 +152,13 @@ async def banlist(ctx, p="list", champ=""):
                 await ctx.channel.send(embed=embed)
                 return
             case "add":
-                if (champ in getAllChamps() and champ not in banlist):
+                if champ in banlist[str(ctx.guild.id)]:
+                    await ctx.channel.send(f"{champ} is already banned.")
+                elif(champ in getAllChamps()):
                     banlist[str(ctx.guild.id)].append(champ)
                     await ctx.channel.send(f"{champ} was added to the banlist.")
                 else:
-                    await ctx.channel.send(f"{champ} is not in the game. Check spelling")
+                    await ctx.channel.send(f"{champ} is not in the game. Check spelling.")
 
             case "default":
                 banlist[str(ctx.guild.id)] = getBanned()
@@ -168,6 +170,9 @@ async def banlist(ctx, p="list", champ=""):
                     await ctx.channel.send(f"{champ} was removed from the banlist.")
                 else:
                     await ctx.channel.send(f"{champ} is not in the banlist. Check spelling")
+            case _:
+                await ctx.channel.send("Sorry, i didn't understand that.")
+
     with open("banlist.json", "w") as f:
         json.dump(banlist, f)
 
@@ -216,7 +221,7 @@ def getEnchanters():
 
 def getTanks():
     tanks = ["Alistar", "Amumu", "Blitzcrank", "Braum", "Cho'Gath", "Dr. Mundo", "Galio", "Kled", "Leona", "Malphite", "Maokai",
-         "Nautilus", "Nunu & Willump", "Ornn", "Poppy", "Rakan", "Rammus", "Rell", "Singed", "Sion", "Skarner", "Trundle", "Tahm Kench", "Taric",
+         "Nautilus", "Nunu & Willump", "Ornn", "Poppy", "Rakan", "Rammus", "Rell", "Sion", "Skarner", "Trundle", "Tahm Kench", "Taric",
          "Thresh", "Volibear", "Warwick"]
     return tanks
 
