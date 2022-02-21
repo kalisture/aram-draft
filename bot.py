@@ -17,29 +17,21 @@ async def on_command_error(ctx, error):
 async def baram(ctx, teamS=3, idvPool=3):
     allChamps = getAllChamps()
 
+    for i in getADCs():
+        allChamps[i]['adc'] = True
+
+    for i in getTanks():
+        allChamps[i]['tank'] = True
+
+    for i in getEnchanters():
+        allChamps[i]['enchanter'] = True
+
     for i in getBanned():
         try:
             allChamps.pop(i)
         except:
             pass
 
-    for i in getADCs():
-        try:
-            allChamps[i]['adc'] = True
-        except:
-            pass
-
-    for i in getTanks():
-        try:
-            allChamps[i]['tank'] = True
-        except:
-            pass
-
-    for i in getEnchanters():
-        try:
-            allChamps[i]['enchanter'] = True
-        except:
-            pass
 
     teamSize = int(teamS)
     idvPool = min(idvPool, 10)
@@ -184,7 +176,7 @@ def listFormat(list):
 
 def getAllChamps():
     allChamps = {"Aatrox": {},"Ahri": {},"Akali": {},"Akshan": {},"Alistar": {},"Amumu": {},"Anivia": {},"Annie": {},"Aphelios": {},"Ashe": {},"Aurelion Sol": {},"Azir": {},
-        "Bard": {},"Blitzcrank": {},"Brand": {},"Braum": {},"Caitlyn": {},"Camille": {},"Cassiopeia": {},"Cho'Gath": {},"Corki": {},"Darius": {},"Diana": {},"Draven": {},"Dr, Mundo": {},
+        "Bard": {},"Blitzcrank": {},"Brand": {},"Braum": {},"Caitlyn": {},"Camille": {},"Cassiopeia": {},"Cho'Gath": {},"Corki": {},"Darius": {},"Diana": {},"Draven": {},"Dr. Mundo": {},
         "Ekko": {},"Elise": {},"Evelynn": {},"Ezreal": {},"Fiddlesticks": {},"Fiora": {},"Fizz": {},"Galio": {},"Gangplank": {},"Garen": {},"Gnar": {},"Gragas": {},"Graves": {},"Gwen": {},
         "Hecarim": {},"Heimerdinger": {},"Illaoi": {},"Irelia": {},"Ivern": {},"Janna": {},"Jarvan IV": {},"Jax": {},"Jayce": {},"Jhin": {},"Jinx": {},
         "Kai'Sa": {},"Kalista": {},"Karma": {},"Karthus": {},"Kassadin": {},"Katarina": {},"Kayle": {},"Kayn": {},"Kennen": {},"Kha'Zix": {},"Kindred": {},"Kled": {},"Kog'Maw": {},
