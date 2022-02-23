@@ -3,6 +3,9 @@ from discord.ext import commands
 import random
 import json
 
+with open("config.json", "r") as f:
+    token = json.load(f)["token"]
+
 client = commands.Bot(command_prefix='%')
 
 @client.event
@@ -222,4 +225,4 @@ def powerPicks():
 
 
 
-client.run('OTQ0NDU2NzI1NTU2MjQwNDE0.YhB33g.l3Vw765fWBALxy_OGLSqvBeLARY')
+client.run(token)
