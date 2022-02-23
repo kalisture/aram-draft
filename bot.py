@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 import random
 import json
-
-with open("config.json", "r") as f:
-    token = json.load(f)["token"]
+import os
+   
+token = os.environ.get('token')
 
 client = commands.Bot(command_prefix='%')
 
