@@ -179,12 +179,12 @@ def listFormat(list):
 
 def getAllChamps():
     allChamps = {"Aatrox": {},"Ahri": {},"Akali": {},"Akshan": {},"Alistar": {},"Amumu": {},"Anivia": {},"Annie": {},"Aphelios": {},"Ashe": {},"Aurelion Sol": {},"Azir": {},
-        "Bard": {},"Blitzcrank": {},"Brand": {},"Braum": {},"Caitlyn": {},"Camille": {},"Cassiopeia": {},"Cho'Gath": {},"Corki": {},"Darius": {},"Diana": {},"Draven": {},"Dr. Mundo": {},
+        "Bard": {}, "Bel'Veth": {}, "Blitzcrank": {},"Brand": {},"Braum": {},"Caitlyn": {},"Camille": {},"Cassiopeia": {},"Cho'Gath": {},"Corki": {},"Darius": {},"Diana": {},"Draven": {},"Dr. Mundo": {},
         "Ekko": {},"Elise": {},"Evelynn": {},"Ezreal": {},"Fiddlesticks": {},"Fiora": {},"Fizz": {},"Galio": {},"Gangplank": {},"Garen": {},"Gnar": {},"Gragas": {},"Graves": {},"Gwen": {},
         "Hecarim": {},"Heimerdinger": {},"Illaoi": {},"Irelia": {},"Ivern": {},"Janna": {},"Jarvan IV": {},"Jax": {},"Jayce": {},"Jhin": {},"Jinx": {},
         "Kai'Sa": {},"Kalista": {},"Karma": {},"Karthus": {},"Kassadin": {},"Katarina": {},"Kayle": {},"Kayn": {},"Kennen": {},"Kha'Zix": {},"Kindred": {},"Kled": {},"Kog'Maw": {},
         "LeBlanc": {},"Lee Sin": {},"Leona": {},"Lillia": {},"Lissandra": {},"Lucian": {},"Lulu": {},"Lux": {},"Malphite": {},"Malzahar": {},"Maokai": {},"Master Yi": {},"Miss Fortune": {},"Mordekaiser": {},"Morgana": {},
-        "Nami": {},"Nasus": {},"Nautilus": {},"Neeko": {},"Nidalee": {},"Nocturne": {},"Nunu & Willump": {},"Olaf": {},"Orianna": {},"Ornn": {},"Pantheon": {},"Poppy": {},"Pyke": {},"Qiyana": {},"Quinn": {},
+        "Nami": {},"Nasus": {},"Nautilus": {},"Neeko": {},"Nidalee": {}, "Nilah": {}, "Nocturne": {},"Nunu & Willump": {},"Olaf": {},"Orianna": {},"Ornn": {},"Pantheon": {},"Poppy": {},"Pyke": {},"Qiyana": {},"Quinn": {},
         "Rakan": {},"Rammus": {},"Rek'Sai": {},"Rell": {},"Renata Glasc": {},"Renekton": {},"Rengar": {},"Riven": {},"Rumble": {},"Ryze": {},"Samira": {},"Sejuani": {},"Senna": {},
         "Seraphine": {},"Sett": {},"Shaco": {},"Shen": {},"Shyvana": {},"Singed": {},"Sion": {},"Sivir": {},"Skarner": {},"Sona": {},"Soraka": {},"Swain": {},"Sylas": {},"Syndra": {},
         "Tahm Kench": {},"Taliyah": {},"Talon": {},"Taric": {},"Teemo": {},"Thresh": {},"Tristana": {},"Trundle": {},"Tryndamere": {},"Twisted Fate": {},"Twitch": {},"Udyr": {},
@@ -206,7 +206,7 @@ def getBanned():
     return banned
 
 def getADCs():
-    adcs = ["Ashe", "Akshan", "Aphelios", "Caitlyn", "Corki", "Draven", "Jhin", "Jinx", "Lucian", "Kalista", "Kai'Sa", "Kindred", "Kog'Maw", "Miss Fortune", "Samira", "Senna", "Sivir", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Zeri"]
+    adcs = ["Ashe", "Akshan", "Aphelios", "Caitlyn", "Corki", "Draven", "Jhin", "Jinx", "Lucian", "Kalista", "Kai'Sa", "Kindred", "Kog'Maw", "Miss Fortune", "Nilah", "Samira", "Senna", "Sivir", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Zeri"]
     return adcs
 
 def getEnchanters():
